@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>uvCharts</title>
+
+
+        <script src="scripts/d3.js" type="text/javascript"></script>
+        <script src="scripts/uvcharts.js" type="text/javascript"></script>
+        <script src="scripts/jquery.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+
+<div id="uv-div" style="position:absolute; top:60px; left:10px;"></div>
+
+
+<script>
+
+var chart = uv.chart('Bar', graphdef);
+
+ var graphdef = {
+    categories : ['uvCharts'],
+    dataset : {
+        'uvCharts' : [
+            { name : '2009', value : 32 },
+            { name : '2010', value : 60 },
+            { name : '2011', value : 97 },
+            { name : '2012', value : 560 },
+            { name : '2013', value : 999 }
+        ]
+    }
+}
+
+
+
+
+    </script>
+
+</body>
+
+</html>
