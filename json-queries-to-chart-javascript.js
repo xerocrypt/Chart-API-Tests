@@ -1,3 +1,5 @@
+
+
 var pathologyCount = 0;
 var radiologyCount = 0;
 var cardiologyCount = 0;
@@ -56,3 +58,43 @@ function (Data)
             if (myMessageType[i] == "Unknown")
             unknownCount++;
         }
+
+
+        // Insert callback here to Chart 2
+        setTimeout(function () { chartByTypes(); }, 2000);
+    });
+
+        function chartByTypes() {
+            var chart = AmCharts.makeChart("chartdiv3", {
+                "type": "pie",
+                "theme": "light",
+                "noStyles": true,
+                "dataProvider": [{
+                    "title": "Pathology",
+                    "value": parseInt(pathologyCount),
+                    "fillColor": "#b7e021"
+                },{
+                    "title": "Radiology",
+                    "value": parseInt(radiologyCount)
+                },
+                {
+                    "title": "Cardiology",
+                    "value": parseInt(cardiologyCount)
+                },
+
+                {
+                    "title": "Unknown",
+                    "value": parseInt(unknownCount),
+                }],
+                    "titleField": "title",
+                    "valueField": "value",
+                    "labelRadius": 5,
+
+                    "radius": "42%",
+                    "innerRadius": "60%",
+                    "labelText": "[[title]]",
+                    "export": {
+                        "enabled": true
+                    }
+                });
+            }
