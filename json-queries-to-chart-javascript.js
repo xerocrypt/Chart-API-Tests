@@ -38,27 +38,16 @@ function (Data)
 
         // Populate several arrays from initial JSON objects
         // and produce counts of each one.
-        for (var i = 0; i < myMessageType.length; i++)
-        {
+        for (var i = 0; i < myMessageType.length; i++) {
             if (myMessageType[i] == "Pathology")
-            pathologyCount++;
-        }
-        for (var i = 0; i < myMessageType.length; i++)
-        {
+                pathologyCount++;
             if (myMessageType[i] == "Radiology")
-            radiologyCount++;
-        }
-        for (var i = 0; i < myMessageType.length; i++)
-        {
+                radiologyCount++;
             if (myMessageType[i] == "Cardiology")
-            cardiologyCount++;
-        }
-        for (var i = 0; i < myMessageType.length; i++)
-        {
+                cardiologyCount++;
             if (myMessageType[i] == "Unknown")
-            unknownCount++;
+                unknownCount++;
         }
-
 
         // Insert callback here to Chart 2
         setTimeout(function () { chartByTypes(); }, 2000);
@@ -69,23 +58,10 @@ function (Data)
                 "type": "pie",
                 "theme": "light",
                 "noStyles": true,
-                "dataProvider": [{
-                    "title": "Pathology",
-                    "value": parseInt(pathologyCount),
-                    "fillColor": "#b7e021"
-                },{
-                    "title": "Radiology",
-                    "value": parseInt(radiologyCount)
-                },
-                {
-                    "title": "Cardiology",
-                    "value": parseInt(cardiologyCount)
-                },
-
-                {
-                    "title": "Unknown",
-                    "value": parseInt(unknownCount),
-                }],
+                "dataProvider": [{"title": "Pathology", "value": parseInt(pathologyCount)},
+                                {"title": "Radiology", "value": parseInt(radiologyCount)},
+                                {"title": "Cardiology", "value": parseInt(cardiologyCount)},
+                                {"title": "Unknown", "value": parseInt(unknownCount)}],
                     "titleField": "title",
                     "valueField": "value",
                     "labelRadius": 5,
@@ -93,8 +69,6 @@ function (Data)
                     "radius": "42%",
                     "innerRadius": "60%",
                     "labelText": "[[title]]",
-                    "export": {
-                        "enabled": true
-                    }
+                    "export": {"enabled": true}
                 });
             }
